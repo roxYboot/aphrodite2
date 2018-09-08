@@ -213,13 +213,13 @@ client.on("message", message => {
   const embed = new Discord.RichEmbed() 
       .setColor("#000000")
       .setDescription(`
-$**play ⇏ لتشغيل أغنية برآبط أو بأسم
-$**skip ⇏ لتجآوز الأغنية الحآلية
-$**pause ⇏ إيقآف الأغنية مؤقتا
-$**resume ⇏ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-$**vol ⇏ لتغيير درجة الصوت 100 - 0
-$**stop ⇏ لإخرآج البوت من الروم
-$**join ⇏ لدخول البوت الروم
+${prefix}play ⇏ لتشغيل أغنية برآبط أو بأسم
+${prefix}skip ⇏ لتجآوز الأغنية الحآلية
+${prefix}pause ⇏ إيقآف الأغنية مؤقتا
+${prefix}resume ⇏ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
+${prefix}vol ⇏ لتغيير درجة الصوت 100 - 0
+${prefix}stop ⇏ لإخرآج البوت من الروم
+${prefix}join ⇏ لدخول البوت الروم
  `)
    message.channel.sendEmbed(embed)
     
