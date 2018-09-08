@@ -228,13 +228,6 @@ ${prefix}join ⇏ لدخول البوت الروم
 
 
 
-case "repeat":
-			if (isPlaying) {
-				queue.splice(1, 0, queue[0]);
-				songsQueue.splice(1, 0, songsQueue[0]);
-				message.reply(`**${songsQueue[0]}** will be played again.`);
-			}
-			break;
 
 
 client.on('message', function(message) {
