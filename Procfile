@@ -1,1 +1,1 @@
-worker: node kzZo_Music.js
+worker: node aphrodite2.js
