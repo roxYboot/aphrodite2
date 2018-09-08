@@ -7,7 +7,7 @@ const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = '$';
+const prefix = '**';
 client.on('ready', function() {
     console.log(`i am ready ${client.user.username}`);
 });
@@ -206,6 +206,117 @@ function isYoutube(str) {
       message.channel.send({embed});
      }
     });
+
+
+
+client.on("message", message => {
+ if (message.content === `${prefix}help`) {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#000000")
+      .setDescription(`
+${prefix}play ⇏ لتشغيل أغنية برآبط أو بأسم
+${prefix}skip ⇏ لتجآوز الأغنية الحآلية
+${prefix}pause ⇏ إيقآف الأغنية مؤقتا
+${prefix}resume ⇏ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
+${prefix}vol ⇏ لتغيير درجة الصوت 100 - 0
+${prefix}stop ⇏ لإخرآج البوت من الروم
+${prefix}np ⇏ لمعرفة الأغنية المشغلة حآليا
+${prefix}queue ⇏ لمعرفة قآئمة التشغيل
+ `)
+   message.channel.sendEmbed(embed)
+    
+   }
+   }); 
+
+
+
+
+
+
+client.on('message', function(message) {
+	const myID = "308280511371935744";
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.startsWith(prefix + "setname")) {
+		        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setUsername(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "stream")) {
+		        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args , 'https://twitch.tv/6xlez1');
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "play")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "listen")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'LISTENING'});
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "watch")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'WATCHING'});
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "setavatar")) {
+				        if(message.author.id !== myID) return;
+        client.user.setAvatar(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    }
+});
+
+
+
+
+client.on('message', async message => {
+            if(!message.channel.guild) return;
+             if (message.content.startsWith("aphrodite")) {
+let args = message.content.split(' ').slice(1).join(' ');
+            let sigMessage = await args;
+            
+            if (sigMessage === "online") {
+                client.user.setStatus("online");
+                message.author.send("Your status was set to online.");
+            }
+            if (sigMessage === "idle") {
+                client.user.setStatus("idle");
+                message.author.send("Your status was set to idle.");
+            }
+            if (sigMessage === "invisible") {
+                client.user.setStatus("invisible");
+                message.author.send("Your status was set to invisible.");
+            }
+            if (sigMessage === "dnd") {
+                client.user.setStatus("dnd");
+                message.author.send("Your status was set to dnd.");
+            }
+            // message.author.send("." + message.content);
+        
+}
+});
+
 
 
    
